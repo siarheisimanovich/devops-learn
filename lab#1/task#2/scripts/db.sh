@@ -21,7 +21,7 @@ function listItems () {
 function add () {
 	createFile;
 	read -p "Enter user name: " username
-	while [ -z $username ]; # Q: How I can pass string with space without double quotes?
+	while [ -z $username ];
 	do
 		read -r -p "Please enter value: " username
 	done 
@@ -42,18 +42,19 @@ function add () {
 }
 
 function backup () {
-	date=`date +"%d-%m-%y"`
+	date=`date +"%d-%m-%y:%H-%M-%S"`
 	cp ../data/users.db ../data/${date}-users.db.backup
 }
 
 function restore () {
-	latest=$(find ../data -name '*.backup' -type f) # this not save in variable and not latest
-	mv $latest ../data/users.db
+	last_file=$(cd ../data | ls | egrep '.db.backup' | tail -1)
+	echo $last_file
+	mv $last_file ../data/users.db
 }
 
 function find () {
 	read -p "Enter user name: " username
-	while [ -z $username ]; # Q: How I can pass string with space without double quotes?
+	while [ -z $username ];
 	do
 		read -r -p "Please enter value: " username
 	done
