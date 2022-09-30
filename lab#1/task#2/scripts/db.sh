@@ -47,9 +47,9 @@ function backup () {
 }
 
 function restore () {
-	last_file=$(cd ../data | ls | egrep '.db.backup' | tail -1)
-	echo $last_file
-	mv $last_file ../data/users.db
+  cd ../data
+	last_file=$(ls | egrep '\.db.backup' | tail -1)
+	mv -f $last_file ../data/users.db
 }
 
 function find () {
