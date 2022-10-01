@@ -1,4 +1,8 @@
 #!/usr/bin/env bash
+
+# 0. Switch workin directory
+cd shop-angular-cloudfront
+
 # 1. Install app deps
 npm install
 echo "Modules installed"
