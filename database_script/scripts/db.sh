@@ -72,6 +72,7 @@ function find () {
 function list () {
 	listItems;
 }
+
 function help () {
 echo -n " 
 	Commands:
